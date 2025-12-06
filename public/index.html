@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vercel Full-Stack App</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://vercel.com/favicon.ico">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-server"></i>
+                    <h1>Vercel Full-Stack</h1>
+                </div>
+                <nav class="nav-menu">
+                    <a href="/" class="active">Home</a>
+                    <a href="#demo">API Demo</a>
+                    <a href="#about">About</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h2><i class="fas fa-bolt"></i> Frontend + Backend in One</h2>
+                    <p class="hero-text">
+                        Static files from <code>/public</code> + Serverless functions from <code>/api</code>
+                    </p>
+                    <div class="badges">
+                        <span class="badge"><i class="fas fa-globe"></i> Global CDN</span>
+                        <span class="badge"><i class="fas fa-bolt"></i> Serverless</span>
+                        <span class="badge"><i class="fas fa-rocket"></i> Auto-Deploy</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- API Demo Section -->
+            <section class="demo-section" id="demo">
+                <div class="section-header">
+                    <h3><i class="fas fa-code"></i> API Endpoints</h3>
+                    <p>Test the serverless backend functions</p>
+                </div>
+
+                <div class="api-cards">
+                    <div class="api-card">
+                        <h4><i class="fas fa-hand-wave"></i> GET /api/hello</h4>
+                        <p>A simple greeting API endpoint</p>
+                        <div class="api-test">
+                            <button class="api-btn" onclick="callHelloAPI()">
+                                <i class="fas fa-play"></i> Test Endpoint
+                            </button>
+                            <div class="response">
+                                <pre id="hello-response">Click to test...</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="api-card">
+                        <h4><i class="fas fa-users"></i> POST /api/hello</h4>
+                        <p>Send data to the backend</p>
+                        <div class="api-test">
+                            <input type="text" id="name-input" placeholder="Enter your name" class="input-field">
+                            <button class="api-btn" onclick="postToAPI()">
+                                <i class="fas fa-paper-plane"></i> Send Data
+                            </button>
+                            <div class="response">
+                                <pre id="post-response">Enter name and click send...</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Status -->
+                <div class="status-card">
+                    <h4><i class="fas fa-heartbeat"></i> API Status</h4>
+                    <div class="status-indicator">
+                        <span class="status-dot" id="status-dot"></span>
+                        <span id="status-text">Checking API status...</span>
+                    </div>
+                    <button class="refresh-btn" onclick="checkAPIStatus()">
+                        <i class="fas fa-sync"></i> Refresh Status
+                    </button>
+                </div>
+            </section>
+
+            <!-- Info Section -->
+            <section class="info-section" id="about">
+                <div class="section-header">
+                    <h3><i class="fas fa-info-circle"></i> How It Works</h3>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-folder"></i>
+                        <h4>/public folder</h4>
+                        <p>All files here are automatically served as static assets. Accessible at your domain root.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-cogs"></i>
+                        <h4>/api folder</h4>
+                        <p>Each .js file becomes a serverless function at <code>/api/[filename]</code></p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-cloud"></i>
+                        <h4>Zero Config</h4>
+                        <p>Vercel automatically detects and deploys both frontend and backend.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p>🚀 Deployed on <a href="https://vercel.com" target="_blank">Vercel</a></p>
+                <p class="footer-links">
+                    <a href="https://vercel.com/docs" target="_blank"><i class="fas fa-book"></i> Docs</a>
+                    <a href="https://github.com/vercel" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" onclick="showDeployInfo()"><i class="fas fa-code"></i> View Source</a>
+                </p>
+                <p class="deployment-info" id="deployment-info"></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
